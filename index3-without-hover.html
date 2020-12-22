@@ -14,16 +14,16 @@
         text-decoration: none;
       }
       .image {
-        vertical-align: middle;
         border-radius: 3px;
+        vertical-align: middle;
       }
       .content {
         display: flex;
         flex-direction: column-reverse;
+        height: 100%;
+        left: 0;
         position: absolute;
         top: 0;
-        left: 0;
-        height: 100%;
       }
       .content-footer {
         background-image: linear-gradient(
@@ -31,48 +31,19 @@
           rgba(0, 0, 0, 0.3) 0%,
           rgba(0, 0, 0, 0.8) 100%
         );
-        /* background-color: red; */
         border-radius: 3px;
         box-sizing: border-box;
         color: white;
-        width: 300px;
+        font-family: sans-serif;
         padding: 5px;
         position: relative;
         overflow-wrap: break-word;
-        font-family: sans-serif;
+        width: 300px;
       }
       .title {
-        --lh: 20px;
-        --max-lines: 2;
-        line-height: var(--lh);
+        line-height: 20px;
         font-size: 15px;
-        max-height: calc(var(--lh) * var(--max-lines));
-        overflow: hidden;
-        padding-right: 1rem;
         position: relative;
-      }
-      .container:hover .title {
-        overflow: unset;
-        max-height: unset;
-      }
-      .title::before {
-        bottom: 0;
-        content: "...";
-        font-size: 11px;
-        position: absolute;
-        right: 0;
-      }
-      .title::after {
-        background-image: url("https://fonts.gstatic.com/s/i/materialicons/thumb_up/v7/24px.svg");
-        background-size: 1.1rem 1.1rem;
-        background-repeat: no-repeat;
-        /* background-color: rgba(255, 255, 255, 1); */
-        /* border-radius: 25%; */
-        content: "";
-        height: 1rem;
-        position: absolute;
-        right: 0;
-        width: 1rem;
       }
       .source {
         font-size: 11px;
