@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function test() {
+        const requestData = {
+          contentUrl: "http://localhost",
+          widgetId: "JS_1",
+          installationKey: "VIAFO8JGP22H14BQO6QJI2N6E",
+          testMode: true,
+        };
+
+        window.OBR.extern.callRecs(requestData, (ads) => {
+          let [ad] = ads.doc;
+          console.log(ad.content);
+          console.log(ad.url);
+          console.log(ad.thumbnail.url);
+          // let img = document.createElement("img");
+          // img.src = ad.thumbnail.url;
+          // console.log(img);
+          // document.body.appendChild(img);
+          // console.log(ad.source_display_name);
+        });
+      }
+    </script>
+
+    <button onclick="test()">Test</button>
+    <span>See console.log</span>
+
+    <script
+      type="text/javascript"
+      async="async"
+      src="https://widgets.outbrain.com/outbrain.js"
+    ></script>
+  </body>
+</html>

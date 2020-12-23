@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function test() {
+        const slotId = "slot-1";
+        const installationKey = "VIAFO8JGP22H14BQO6QJI2N6E";
+        const widgetId = "JS_1";
+        const contentUrl = "http://localhost/";
+        const requestData = {
+          contentUrl,
+          widgetId,
+          installationKey,
+          testMode: true, // uncomment for development
+        };
+
+        const slot = document.getElementById(slotId);
+        slot.setAttribute("style", `text-align: center;`);
+
+        const ad = document.createElement("div");
+        ad.setAttribute(
+          "style",
+          `
+            display: inline-block;
+            cursor: pointer;
+        `
+        );
+
+        const container = document.createElement("div");
+        container.id = "container";
+        container.style = `
+              position: relative;
+              width: 300px;
+              height: 250px;
+          `;
+        const img = document.createElement("img");
+        img.id = "img";
+        img.style = `
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 300px;
+              height: 250px;
+          `;
+        const whiteBlocker = document.createElement("div");
+        whiteBlocker.id = "whiteBlocker";
+        whiteBlocker.style = `
+              position: absolute;
+              top: 143px;
+              left: 8px;
+              width: 284px;
+              height: 100px;
+              background: #FFFFFF;
+          `;
+        const sponsoredRect = document.createElement("div");
+        sponsoredRect.id = "sponsoredRect";
+        sponsoredRect.innerText = "Sponsored"; // TODO FIXME: i18n
+        sponsoredRect.style = `
+              position: absolute;
+              width: 54px;
+              height: 15px;
+
+              top: 135px;
+              left: 10px;
+              background: #666666;
+              border-radius: 0px;
+              font-family: Arial;
+              font-size: 9px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: 15px;
+              letter-spacing: 0em;
+              text-align: center;
+              padding-left: 3px;
+              padding-right: 3px;
+              color: #FFFFFF;
+          `;
+
+        const title = document.createElement("div");
+        title.id = "title";
+        title.style = `
+              position: absolute;
+              height: 40px;
+              width: 269px;
+              left: 10px;
+              top: 155px;
+
+              font-family: Arial;
+              font-size: 16px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: 20px;
+              letter-spacing: 0em;
+              text-align: left;
+          `;
+
+        const source = document.createElement("div");
+        source.id = "source";
+        source.style = `
+              position: absolute;
+              left: 10px;
+              top: 196px;
+              font-family: Arial;
+              font-size: 11px;
+              font-style: normal;
+              line-height: 15px;
+              letter-spacing: 0em;
+              text-align: left;
+
+              font-weight: normal;
+              font-size: 11px;
+              line-height: 15px;
+              color: #888888;
+          `;
+
+        const recommended = document.createElement("div");
+        recommended.id = "recommended";
+        recommended.innerText = "Recommended by";
+        recommended.style = `
+              position: absolute;
+              top: 225px;
+              right: 97px;
+              width: 89px;
+              height: 15px;
+
+              font-family: Arial;
+              font-style: normal;
+              font-weight: normal;
+              font-size: 10px;
+              line-height: 14px;
+              text-align: right;
+
+              color: #757575;
+          `;
+
+        const obLabel = document.createElement("img");
+        obLabel.id = "obLabel";
+        obLabel.src = "images/outbrain-gray.png";
+        obLabel.style = `
+              position: absolute;
+              top: 222px;
+              right: 10px;
+              width: 80px;
+              height: 14px;
+
+              background: url(.png);
+              border-radius: 0px;
+          `;
+
+        const a = document.createElement("a");
+        a.style = `
+                          position: absolute;
+                          top: 0;
+                          left: 0;
+                          width: 300px;
+                          height: 250px;
+                      `;
+        a.setAttribute("target", "_blank");
+
+        container.appendChild(img);
+        container.appendChild(whiteBlocker);
+        container.appendChild(sponsoredRect);
+        container.appendChild(title);
+        container.appendChild(source);
+        container.appendChild(recommended);
+        container.appendChild(obLabel);
+        container.appendChild(a);
+        slot.appendChild(ad);
+        ad.appendChild(container);
+
+        window.OBR.extern.callRecs(requestData, (ads) => {
+          const [first] = ads.doc;
+
+          title.innerText = first.content;
+          source.innerText = first.source_display_name;
+          img.src = first.thumbnail.url;
+          a.href = first.url;
+        });
+      }
+    </script>
+    <div>
+      <button onclick="test()">test</button>
+    </div>
+    <div id="slot-1"></div>
+    <script
+      type="text/javascript"
+      async="async"
+      src="https://widgets.outbrain.com/outbrain.js"
+    ></script>
+  </body>
+</html>
