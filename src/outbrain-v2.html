@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+      body {
+        font-family: Roboto;
+      }
+      .slot {
+        /* width: 570px; */
+      }
+      .container {
+        display: flex;
+      }
+      .author {
+        margin-right: 20px;
+      }
+      .avatar {
+        align-items: center;
+        border: 1px solid rgb(166, 166, 166);
+        border-radius: 50%;
+        color: rgb(166, 166, 166);
+        display: flex;
+        height: 40px;
+        justify-content: center;
+        width: 40px;
+      }
+      .content {
+        flex-grow: 1;
+      }
+      .header {
+        display: flex;
+        align-items: center;
+      }
+      .source {
+        color: rgb(40, 40, 40);
+        font-weight: bold;
+        font-size: 15px;
+        line-height: 15px;
+        margin-right: 10px;
+      }
+      .sponsored {
+        flex-grow: 1;
+        padding: 0;
+        font-size: 10px;
+        line-height: 15px;
+      }
+      .sponsoredText {
+        background: rgb(0, 0, 0);
+        display: inline-block;
+        border-radius: 10px;
+        color: rgb(255, 255, 255);
+        font-weight: bold;
+        font-size: 10px;
+        line-height: 15px;
+        padding: 0px 8px 0px 8px;
+        text-transform: uppercase;
+      }
+      .recommended {
+        color: rgb(117, 117, 117);
+        font-size: 8px;
+      }
+      .recommended img {
+        height: 9px;
+        width: 50px;
+      }
+      .title {
+        color: rgb(40, 40, 40);
+        font-size: 15px;
+        font-weight: normal;
+        line-height: 23px;
+        margin-top: 8px;
+      }
+      .image {
+        height: 125px;
+        margin-top: 10px;
+        width: 375px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slot">
+      <div class="container">
+        <div class="author">
+          <div class="avatar">Ad</div>
+        </div>
+        <div class="content">
+          <div class="header">
+            <div class="source">Statista.com</div>
+            <div class="sponsored">
+              <span class="sponsoredText">SPONSORED</span>
+            </div>
+            <div class="recommended">
+              <span>Recommended by </span>
+              <img src="./images/outbrain.svg" />
+            </div>
+          </div>
+          <div class="title">
+            Become an industry expert in no time this is some text to show the
+            max length of characters in ad text. Addming more grammar to get to
+            150 characters.
+          </div>
+          <div>
+            <img class="image" src="./images/img1.webp" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

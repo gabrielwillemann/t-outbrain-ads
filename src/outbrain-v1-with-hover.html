@@ -42,37 +42,10 @@
         font-family: sans-serif;
       }
       .title {
-        --lh: 20px;
-        --max-lines: 2;
-        line-height: var(--lh);
         font-size: 15px;
-        max-height: calc(var(--lh) * var(--max-lines));
         overflow: hidden;
         padding-right: 1rem;
         position: relative;
-      }
-      .container:hover .title {
-        overflow: unset;
-        max-height: unset;
-      }
-      .title::before {
-        bottom: 0;
-        content: "...";
-        font-size: 11px;
-        position: absolute;
-        right: 0;
-      }
-      .title::after {
-        background-image: url("https://fonts.gstatic.com/s/i/materialicons/thumb_up/v7/24px.svg");
-        background-size: 1.1rem 1.1rem;
-        background-repeat: no-repeat;
-        /* background-color: rgba(255, 255, 255, 1); */
-        /* border-radius: 25%; */
-        content: "";
-        height: 1rem;
-        position: absolute;
-        right: 0;
-        width: 1rem;
       }
       .source {
         font-size: 11px;
@@ -94,11 +67,9 @@
       <div class="container">
         <a class="link" href="https://google.com" target="_blank">
           <img class="image" src="./images/img3.webp" />
-          <div class="content">
+          <div class="content" onmouseover="onMouseOver()" onmouseout="onMouseOut()">
             <div class="content-footer">
-              <div class="title">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vestibulum ullamcorper ligula, ut hendrerit ex facilisis interdum. Suspendisse vivamus.
-              </div>
+              <div id="title" class="title"></div>
               <div class="source">Top Gadget Discounts</div>
               <div class="recommended">
                 <span>Recommended by </span>
@@ -109,5 +80,17 @@
         </a>
       </div>
     </div>
+    <script>
+      const titleText = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vestibulum ullamcorper ligula, ut hendrerit ex facilisis interdum. Suspendisse vivamus.';
+      onMouseOut();
+      function onMouseOver() {
+        const title = document.getElementById('title');
+        title.innerText = titleText;
+      }
+      function onMouseOut() {
+        const title = document.getElementById('title');
+        title.innerText = titleText.substring(0, 75) + '...';
+      };
+    </script>
   </body>
 </html>
