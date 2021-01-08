@@ -49,14 +49,14 @@
       }
       .sponsored {
         flex-grow: 1;
-        padding: 0;
         font-size: 10px;
         line-height: 15px;
+        padding: 0;
       }
       .sponsoredText {
         background: rgb(0, 0, 0);
-        display: inline-block;
         border-radius: 10px;
+        display: inline-block;
         color: rgb(255, 255, 255);
         font-weight: bold;
         font-size: 10px;
@@ -84,35 +84,42 @@
         margin-top: 10px;
         width: 375px;
       }
+      .link {
+        display: block;
+        text-decoration: none;
+        color: inherit;
+      }
     </style>
   </head>
   <body>
     <div class="slot">
-      <div class="container">
-        <div class="author">
-          <div class="avatar">Ad</div>
-        </div>
-        <div class="content">
-          <div class="header">
-            <div class="source">Statista.com</div>
-            <div class="sponsored">
-              <span class="sponsoredText">SPONSORED</span>
+      <a class="link">
+        <div class="container">
+          <div class="author">
+            <div class="avatar">Ad</div>
+          </div>
+          <div class="content">
+            <div class="header">
+              <div class="source">Statista.com</div>
+              <div class="sponsored">
+                <span class="sponsoredText">SPONSORED</span>
+              </div>
+              <div class="recommended">
+                <span>Recommended by </span>
+                <img src="./images/outbrain.svg" />
+              </div>
             </div>
-            <div class="recommended">
-              <span>Recommended by </span>
-              <img src="./images/outbrain.svg" />
+            <div class="title">
+              Become an industry expert in no time this is some text to show the
+              max length of characters in ad text. Addming more grammar to get
+              to 150 characters.
+            </div>
+            <div>
+              <img class="image" src="./images/img1.webp" />
             </div>
           </div>
-          <div class="title">
-            Become an industry expert in no time this is some text to show the
-            max length of characters in ad text. Addming more grammar to get to
-            150 characters.
-          </div>
-          <div>
-            <img class="image" src="./images/img1.webp" />
-          </div>
         </div>
-      </div>
+      </a>
     </div>
   </body>
 </html>
